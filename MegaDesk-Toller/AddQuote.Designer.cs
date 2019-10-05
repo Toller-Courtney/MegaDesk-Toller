@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.addQuoteReturnToMainButton = new System.Windows.Forms.Button();
             this.AddNewQuoteExitButton = new System.Windows.Forms.Button();
             this.addQuoteWelcomeLabel = new System.Windows.Forms.Label();
@@ -44,10 +45,15 @@
             this.DesktopMaterial = new System.Windows.Forms.ComboBox();
             this.RushOrderLabel = new System.Windows.Forms.Label();
             this.rushDays = new System.Windows.Forms.ComboBox();
-            this.rushOrderDescriptionLabel = new System.Windows.Forms.Label();
             this.customerNameLabel = new System.Windows.Forms.Label();
             this.customerName = new System.Windows.Forms.TextBox();
             this.submitQuoteButton = new System.Windows.Forms.Button();
+            this.nameError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.widthError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.depthError = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.nameError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depthError)).BeginInit();
             this.SuspendLayout();
             // 
             // addQuoteReturnToMainButton
@@ -165,6 +171,8 @@
             this.width.Name = "width";
             this.width.Size = new System.Drawing.Size(100, 20);
             this.width.TabIndex = 10;
+            this.width.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Width_KeyPress);
+            this.width.Validating += new System.ComponentModel.CancelEventHandler(this.Width_Validating);
             // 
             // depth
             // 
@@ -172,6 +180,8 @@
             this.depth.Name = "depth";
             this.depth.Size = new System.Drawing.Size(100, 20);
             this.depth.TabIndex = 11;
+            this.depth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Depth_KeyPress);
+           // this.depth.Validating += new System.ComponentModel.CancelEventHandler(this.Depth_Validating);
             // 
             // drawers
             // 
@@ -202,22 +212,16 @@
             // rushDays
             // 
             this.rushDays.FormattingEnabled = true;
+            this.rushDays.Items.AddRange(new object[] {
+            "14 days-Normal",
+            "3 Days",
+            "5 Days",
+            "7 Days"});
             this.rushDays.Location = new System.Drawing.Point(291, 329);
             this.rushDays.Name = "rushDays";
             this.rushDays.Size = new System.Drawing.Size(100, 21);
             this.rushDays.TabIndex = 15;
             this.rushDays.SelectedIndexChanged += new System.EventHandler(this.DeskMaterialDropDown_SelectedIndexChanged);
-            // 
-            // rushOrderDescriptionLabel
-            // 
-            this.rushOrderDescriptionLabel.AutoSize = true;
-            this.rushOrderDescriptionLabel.ForeColor = System.Drawing.Color.Blue;
-            this.rushOrderDescriptionLabel.Location = new System.Drawing.Point(134, 350);
-            this.rushOrderDescriptionLabel.Name = "rushOrderDescriptionLabel";
-            this.rushOrderDescriptionLabel.Size = new System.Drawing.Size(134, 13);
-            this.rushOrderDescriptionLabel.TabIndex = 16;
-            this.rushOrderDescriptionLabel.Text = "Normal Production:14 days";
-            this.rushOrderDescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // customerNameLabel
             // 
@@ -236,6 +240,7 @@
             this.customerName.Name = "customerName";
             this.customerName.Size = new System.Drawing.Size(100, 20);
             this.customerName.TabIndex = 18;
+            this.customerName.Validating += new System.ComponentModel.CancelEventHandler(this.CustomerName_Validating);
             // 
             // submitQuoteButton
             // 
@@ -248,6 +253,18 @@
             this.submitQuoteButton.UseVisualStyleBackColor = true;
             this.submitQuoteButton.Click += new System.EventHandler(this.SubmitQuoteButton_Click);
             // 
+            // nameError
+            // 
+            this.nameError.ContainerControl = this;
+            // 
+            // widthError
+            // 
+            this.widthError.ContainerControl = this;
+            // 
+            // depthError
+            // 
+            this.depthError.ContainerControl = this;
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,7 +274,6 @@
             this.Controls.Add(this.submitQuoteButton);
             this.Controls.Add(this.customerName);
             this.Controls.Add(this.customerNameLabel);
-            this.Controls.Add(this.rushOrderDescriptionLabel);
             this.Controls.Add(this.rushDays);
             this.Controls.Add(this.RushOrderLabel);
             this.Controls.Add(this.DesktopMaterial);
@@ -278,6 +294,9 @@
             this.MinimizeBox = false;
             this.Name = "AddQuote";
             this.Text = "Add a New Quote";
+            ((System.ComponentModel.ISupportInitialize)(this.nameError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depthError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,9 +320,11 @@
         private System.Windows.Forms.ComboBox DesktopMaterial;
         private System.Windows.Forms.Label RushOrderLabel;
         private System.Windows.Forms.ComboBox rushDays;
-        private System.Windows.Forms.Label rushOrderDescriptionLabel;
         private System.Windows.Forms.Label customerNameLabel;
         private System.Windows.Forms.TextBox customerName;
         private System.Windows.Forms.Button submitQuoteButton;
+        private System.Windows.Forms.ErrorProvider nameError;
+        private System.Windows.Forms.ErrorProvider widthError;
+        private System.Windows.Forms.ErrorProvider depthError;
     }
 }

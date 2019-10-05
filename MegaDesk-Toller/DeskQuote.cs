@@ -25,11 +25,11 @@ namespace MegaDesk_Toller
 
         public DeskQuote(double width, double depth, int drawers, int materialList, int rushDays)
         {
-            //var desktopMaterial = Desk.DesktopMaterial;
+            
             Desk.width = width;
             Desk.depth = depth;
             Desk.drawers = drawers;
-            //Desk.DesktopMaterial = materialList;
+            // Desk.DesktopMaterial = materialList;
             RushDays = rushDays;
 
         }
@@ -101,17 +101,33 @@ namespace MegaDesk_Toller
             return drawers * DRAWERCOST;
         }
         
-        public int materialList()
+        private int getMaterialCost()
         {
-            foreach (int i in Enum.GetValues(typeof(DesktopMaterial)))
-                return i;
-
-
+            try
+            {
+                switch(Desk.DeskMaterial)
+                {
+                    case DesktopMaterial.oak: return (int)Desk.DesktopMaterial.oak;
+                    case DesktopMaterial.laminate: return (int)Desk.DesktopMaterial.laminate;
+                    case DesktopMaterial.pine: return (int)Desk.DesktopMaterial.pine;
+                    case DesktopMaterial.rosewood: return (int)Desk.DesktopMaterial.rosewood;
+                    case DesktopMaterial.veneer: return (int)Desk.DesktopMaterial.veneer;
+                    default:
+                        throw new Exception("Material not found.");
+                                                                     
+                }
+            }
+            catch (Exception ex)
+            {
+                return 50;
+                
+            }
         }
+        /*
         public double calcQuoteTotal()
         {
-            double quoteTotal = BASECOST + calcDrawerCost() + calcSurfaceAreaCost() + materialList() + calcShippingRate();
-        }
+            double quoteTotal = BASECOST + calcDrawerCost() + calcSurfaceAreaCost() + getMaterialCost() + calcShippingRate();
+        }*/
 
     }
  

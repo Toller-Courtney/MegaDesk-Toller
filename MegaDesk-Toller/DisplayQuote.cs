@@ -15,6 +15,32 @@ namespace MegaDesk_Toller
         public DisplayQuote()
         {
             InitializeComponent();
+            displayQuoteDateLabel.Text = DateTime.Now.ToString("dd MMM yyy");
         }
+
+        private void DisplayQuoteReturnToMain_Click(object sender, EventArgs e)
+        {
+            MainMenu viewMainMenu = (MainMenu)Tag;
+            viewMainMenu.Show();
+            Close();
+        }
+
+        private void Quotedate_Tick(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now;
+            displayQuoteDateLabel.Text= date.ToString("dd MMM yyy");
+        }
+
+        private void DisplayQuoteExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void DisplayQuoteDateLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

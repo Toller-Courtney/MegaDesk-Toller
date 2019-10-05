@@ -19,7 +19,7 @@ namespace MegaDesk_Toller
         public static int drawers { get; set; }
 
 
-       public static DesktopMaterial materialList { get; set; }
+       public static DesktopMaterial DeskMaterial { get; set; }
 
         /*Enums for my desktop material*/
         public enum DesktopMaterial:int
