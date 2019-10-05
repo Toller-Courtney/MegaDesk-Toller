@@ -23,5 +23,10 @@ namespace MegaDesk_Toller
             viewMainMenu.Show();
             Close();
         }
+
+        private void ViewAllQuotesExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

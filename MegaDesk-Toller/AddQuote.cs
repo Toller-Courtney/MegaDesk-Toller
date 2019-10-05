@@ -15,6 +15,7 @@ namespace MegaDesk_Toller
         public AddQuote()
         {
             InitializeComponent();
+           
         }
 
         private void AddQuoteReturnToMainButton_Click(object sender, EventArgs e)
@@ -22,6 +23,25 @@ namespace MegaDesk_Toller
             MainMenu viewMainMenu = (MainMenu)Tag;
             viewMainMenu.Show();
             Close();
+        }
+
+        private void AddNewQuoteExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void DeskMaterialDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            DesktopMaterial.DataSource = Enum.GetValues(typeof(Desk.DesktopMaterial));
+
+
+
+        }
+
+        private void SubmitQuoteButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
