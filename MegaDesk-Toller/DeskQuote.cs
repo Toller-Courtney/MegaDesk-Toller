@@ -7,37 +7,40 @@ using static MegaDesk_Toller.Desk;
 
 namespace MegaDesk_Toller
 {
-    class DeskQuote : Desk
+    public class DeskQuote : Desk
     {
         public const int BASECOST = 200;
         private const int DRAWERCOST = 50;
         private const int SMALLDESK = 1000;
         private const int LARGEDESK = 2000;
-        private const int THREEDAYRUSH = 3;
-        private const int FIVEDAYRUSH = 5;
-        private const int SEVENDAYRUSH = 7;
-
+        public const int THREEDAYRUSH = 3;
+        public const int FIVEDAYRUSH = 5;
+        public const int SEVENDAYRUSH = 7;
         
+
+
         public int RushDays { get; set; }
-        public string customerName { get; set; }
+        //public static string customerName { get; set; }
         public string quoteDate { get; set; }
         public double quoteTotal { get; set; }
+        //  private double ToDouble(string str) { double value; if (double.TryParse(str, out value)) { return value; } return 0; }
+        //private int ToInt(string str) { int value; if (Int32.TryParse(str, out value)) { return value; } return 0; }
 
-        public DeskQuote(double width, double depth, int drawers, int materialList, int rushDays)
+        public DeskQuote(string customerName, double width, double depth, int drawers, DesktopMaterial materialList, int rushDays)
         {
-            
-            Desk.width = width;
-            Desk.depth = depth;
-            Desk.drawers = drawers;
-            // Desk.DesktopMaterial = materialList;
+            this.customerName = customerName;
+            this.width = width;
+            this.depth = depth;
+            this.drawers = drawers;
             RushDays = rushDays;
+            DeskMaterial = materialList;
 
         }
 
-     
+
         public double calcSurfaceArea()
         {
-           double surfaceArea = width + depth;
+            double surfaceArea = width * depth;
             return surfaceArea;
         }
         /*This method calculations the shipping cost based on the surface area
@@ -45,11 +48,12 @@ namespace MegaDesk_Toller
         public double calcShippingRate()
         {
             int shippingRate = 0;
-            if(calcSurfaceArea()<SMALLDESK && RushDays == THREEDAYRUSH)
+            //calculate3 day shipping
+            if (calcSurfaceArea() < SMALLDESK && RushDays == THREEDAYRUSH)
             {
                 shippingRate = 60;
             }
-            //calculate3 day shipping
+
             else if ((calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK) && RushDays == THREEDAYRUSH)
             {
                 shippingRate = 70;
@@ -58,77 +62,79 @@ namespace MegaDesk_Toller
             {
                 shippingRate = 80;
                 //calculate 5 day shipping
-            }else if(calcSurfaceArea()<SMALLDESK && RushDays == FIVEDAYRUSH)
+            }
+            else if (calcSurfaceArea() < SMALLDESK && RushDays == FIVEDAYRUSH)
             {
                 shippingRate = 40;
-            }else if((calcSurfaceArea()>SMALLDESK &&calcSurfaceArea()< LARGEDESK) && RushDays == FIVEDAYRUSH)
+            }
+            else if ((calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK) && RushDays == FIVEDAYRUSH)
             {
                 shippingRate = 50;
-            }else if (calcSurfaceArea() > LARGEDESK && RushDays == FIVEDAYRUSH)
+            }
+            else if (calcSurfaceArea() > LARGEDESK && RushDays == FIVEDAYRUSH)
             {
                 shippingRate = 60;
                 //calculate 7 day shipping
-            }else if(calcSurfaceArea()<SMALLDESK && RushDays == SEVENDAYRUSH)
+            }
+            else if (calcSurfaceArea() < SMALLDESK && RushDays == SEVENDAYRUSH)
             {
                 shippingRate = 30;
-            }else if ((calcSurfaceArea() > SMALLDESK &&calcSurfaceArea()< LARGEDESK) && RushDays == SEVENDAYRUSH)
+            }
+            else if ((calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK) && RushDays == SEVENDAYRUSH)
             {
                 shippingRate = 35;
-            }else if (calcSurfaceArea() > LARGEDESK && RushDays == SEVENDAYRUSH)
+            }
+            else if (calcSurfaceArea() > LARGEDESK && RushDays == SEVENDAYRUSH)
             {
                 shippingRate = 40;
             }
             return shippingRate;
 
         }
-        
+
         public double calcSurfaceAreaCost()
         {
             if (calcSurfaceArea() > SMALLDESK)
             {
-                return calcSurfaceArea() * 1;
+                return calcSurfaceArea() + (calcSurfaceArea() - SMALLDESK);
             }
-            else if (calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK)
-            {
-                return calcSurfaceArea() * 2;
-            }
-            else
-                return calcSurfaceArea() * 3;
-
-        } 
+            return calcSurfaceArea();
+        }
         public int calcDrawerCost()
         {
             return drawers * DRAWERCOST;
         }
-        
+
         private int getMaterialCost()
         {
             try
             {
-                switch(Desk.DeskMaterial)
+                switch (DeskMaterial)
                 {
-                    case DesktopMaterial.oak: return (int)Desk.DesktopMaterial.oak;
-                    case DesktopMaterial.laminate: return (int)Desk.DesktopMaterial.laminate;
-                    case DesktopMaterial.pine: return (int)Desk.DesktopMaterial.pine;
-                    case DesktopMaterial.rosewood: return (int)Desk.DesktopMaterial.rosewood;
-                    case DesktopMaterial.veneer: return (int)Desk.DesktopMaterial.veneer;
+                    case DesktopMaterial.oak: return (int)DesktopMaterial.oak;
+                    case DesktopMaterial.laminate: return (int)DesktopMaterial.laminate;
+                    case DesktopMaterial.pine: return (int)DesktopMaterial.pine;
+                    case DesktopMaterial.rosewood: return (int)DesktopMaterial.rosewood;
+                    case DesktopMaterial.veneer: return (int)DesktopMaterial.veneer;
                     default:
                         throw new Exception("Material not found.");
-                                                                     
+
                 }
             }
             catch (Exception ex)
             {
                 return 50;
-                
+
             }
         }
-        /*
+        /*Figure out why this is still showing errors.
+         * also figure out how to do the calculation from the input and then display to DisplayQuote.cs*/
         public double calcQuoteTotal()
         {
-            double quoteTotal = BASECOST + calcDrawerCost() + calcSurfaceAreaCost() + getMaterialCost() + calcShippingRate();
-        }*/
+            quoteTotal= BASECOST + calcDrawerCost() + calcSurfaceAreaCost() + getMaterialCost() + calcShippingRate();
+            return quoteTotal;
+        }
 
     }
- 
+
 }

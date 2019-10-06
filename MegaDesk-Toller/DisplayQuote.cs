@@ -12,14 +12,21 @@ namespace MegaDesk_Toller
 {
     public partial class DisplayQuote : Form
     {
+        DeskQuote Quote;
         public DisplayQuote()
         {
             InitializeComponent();
             displayQuoteDateLabel.Text = DateTime.Now.ToString("dd MMM yyy");
         }
+       public DisplayQuote(DeskQuote quote):this()
+            {
+            Quote = quote;
+            }
+
 
         private void DisplayQuoteReturnToMain_Click(object sender, EventArgs e)
         {
+            //Figure out why this isn't working and doesn't return to main.
             MainMenu viewMainMenu = (MainMenu)Tag;
             viewMainMenu.Show();
             Close();
@@ -28,7 +35,7 @@ namespace MegaDesk_Toller
         private void Quotedate_Tick(object sender, EventArgs e)
         {
             DateTime date = DateTime.Now;
-            displayQuoteDateLabel.Text= date.ToString("dd MMM yyy");
+            displayQuoteDateLabel.Text = date.ToString("dd MMM yyy");
         }
 
         private void DisplayQuoteExit_Click(object sender, EventArgs e)
@@ -41,6 +48,19 @@ namespace MegaDesk_Toller
 
         }
 
-        
+        private void DisplayQuote_Load(object sender, EventArgs e)
+        {
+            userInputDisplayLabel.Text =Quote.customerName;
+            userInputWidthLabel.Text = Quote.width.ToString();
+            depthInputLabel.Text = Quote.depth.ToString();
+            drawerInputLabel.Text = Quote.drawers.ToString();
+            materialInputLabel.Text = Quote.DeskMaterial.ToString();
+            rushDayInputLabel.Text = Quote.RushDays.ToString();
+            totalOutputLabel.Text = Quote.calcQuoteTotal().ToString();
+
+            //name add to call or pass it is as a nother variable. because we are passingin class 
+            //customer name to class.
+
+        }
     }
 }

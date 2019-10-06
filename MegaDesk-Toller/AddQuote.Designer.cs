@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddQuote));
             this.addQuoteReturnToMainButton = new System.Windows.Forms.Button();
             this.AddNewQuoteExitButton = new System.Windows.Forms.Button();
             this.addQuoteWelcomeLabel = new System.Windows.Forms.Label();
@@ -42,7 +43,7 @@
             this.width = new System.Windows.Forms.TextBox();
             this.depth = new System.Windows.Forms.TextBox();
             this.drawers = new System.Windows.Forms.TextBox();
-            this.DesktopMaterial = new System.Windows.Forms.ComboBox();
+            this.DesktopMaterialBox = new System.Windows.Forms.ComboBox();
             this.RushOrderLabel = new System.Windows.Forms.Label();
             this.rushDays = new System.Windows.Forms.ComboBox();
             this.customerNameLabel = new System.Windows.Forms.Label();
@@ -51,9 +52,11 @@
             this.nameError = new System.Windows.Forms.ErrorProvider(this.components);
             this.widthError = new System.Windows.Forms.ErrorProvider(this.components);
             this.depthError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.drawerError = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nameError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drawerError)).BeginInit();
             this.SuspendLayout();
             // 
             // addQuoteReturnToMainButton
@@ -81,7 +84,7 @@
             // 
             this.addQuoteWelcomeLabel.AutoSize = true;
             this.addQuoteWelcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addQuoteWelcomeLabel.Location = new System.Drawing.Point(234, 9);
+            this.addQuoteWelcomeLabel.Location = new System.Drawing.Point(183, 9);
             this.addQuoteWelcomeLabel.Name = "addQuoteWelcomeLabel";
             this.addQuoteWelcomeLabel.Size = new System.Drawing.Size(330, 24);
             this.addQuoteWelcomeLabel.TabIndex = 2;
@@ -149,9 +152,9 @@
             this.label1.ForeColor = System.Drawing.Color.Blue;
             this.label1.Location = new System.Drawing.Point(134, 245);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 13);
+            this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Maximum of 7 drawers";
+            this.label1.Text = "Max: 7 drawers";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // desktopMaterialLabel
@@ -181,7 +184,7 @@
             this.depth.Size = new System.Drawing.Size(100, 20);
             this.depth.TabIndex = 11;
             this.depth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Depth_KeyPress);
-           // this.depth.Validating += new System.ComponentModel.CancelEventHandler(this.Depth_Validating);
+            this.depth.Validating += new System.ComponentModel.CancelEventHandler(this.Depth_Validating);
             // 
             // drawers
             // 
@@ -189,14 +192,16 @@
             this.drawers.Name = "drawers";
             this.drawers.Size = new System.Drawing.Size(100, 20);
             this.drawers.TabIndex = 12;
+            this.drawers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Drawers_KeyPress);
+            this.drawers.Validating += new System.ComponentModel.CancelEventHandler(this.Drawers_Validating);
             // 
-            // DesktopMaterial
+            // DesktopMaterialBox
             // 
-            this.DesktopMaterial.FormattingEnabled = true;
-            this.DesktopMaterial.Location = new System.Drawing.Point(291, 278);
-            this.DesktopMaterial.Name = "DesktopMaterial";
-            this.DesktopMaterial.Size = new System.Drawing.Size(100, 21);
-            this.DesktopMaterial.TabIndex = 13;
+            this.DesktopMaterialBox.FormattingEnabled = true;
+            this.DesktopMaterialBox.Location = new System.Drawing.Point(291, 278);
+            this.DesktopMaterialBox.Name = "DesktopMaterialBox";
+            this.DesktopMaterialBox.Size = new System.Drawing.Size(100, 21);
+            this.DesktopMaterialBox.TabIndex = 13;
             // 
             // RushOrderLabel
             // 
@@ -265,6 +270,10 @@
             // 
             this.depthError.ContainerControl = this;
             // 
+            // drawerError
+            // 
+            this.drawerError.ContainerControl = this;
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,7 +285,7 @@
             this.Controls.Add(this.customerNameLabel);
             this.Controls.Add(this.rushDays);
             this.Controls.Add(this.RushOrderLabel);
-            this.Controls.Add(this.DesktopMaterial);
+            this.Controls.Add(this.DesktopMaterialBox);
             this.Controls.Add(this.drawers);
             this.Controls.Add(this.depth);
             this.Controls.Add(this.width);
@@ -290,6 +299,7 @@
             this.Controls.Add(this.addQuoteWelcomeLabel);
             this.Controls.Add(this.AddNewQuoteExitButton);
             this.Controls.Add(this.addQuoteReturnToMainButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddQuote";
@@ -297,6 +307,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nameError)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthError)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drawerError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,7 +328,7 @@
         private System.Windows.Forms.TextBox width;
         private System.Windows.Forms.TextBox depth;
         private System.Windows.Forms.TextBox drawers;
-        private System.Windows.Forms.ComboBox DesktopMaterial;
+        private System.Windows.Forms.ComboBox DesktopMaterialBox;
         private System.Windows.Forms.Label RushOrderLabel;
         private System.Windows.Forms.ComboBox rushDays;
         private System.Windows.Forms.Label customerNameLabel;
@@ -326,5 +337,6 @@
         private System.Windows.Forms.ErrorProvider nameError;
         private System.Windows.Forms.ErrorProvider widthError;
         private System.Windows.Forms.ErrorProvider depthError;
+        private System.Windows.Forms.ErrorProvider drawerError;
     }
 }

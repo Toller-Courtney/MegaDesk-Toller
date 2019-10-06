@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchQuotes));
             this.SearchQuotesReturnToMain = new System.Windows.Forms.Button();
             this.SearchQuotesExitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SearchQuotesReturnToMain
             // 
+            this.SearchQuotesReturnToMain.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.SearchQuotesReturnToMain.Location = new System.Drawing.Point(12, 390);
             this.SearchQuotesReturnToMain.Name = "SearchQuotesReturnToMain";
             this.SearchQuotesReturnToMain.Size = new System.Drawing.Size(77, 48);
@@ -59,6 +61,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.SearchQuotesExitButton);
             this.Controls.Add(this.SearchQuotesReturnToMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SearchQuotes";

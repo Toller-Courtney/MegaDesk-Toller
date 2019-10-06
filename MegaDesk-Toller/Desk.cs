@@ -6,32 +6,23 @@ using System.Threading.Tasks;
 
 namespace MegaDesk_Toller
 {
-    class Desk
+    public class Desk
     {
+
         public const double MINWIDTH = 24;
         public const double MAXWIDTH = 96;
         public const double MINDEPTH = 12;
         public const double MAXDEPTH = 48;
         public const int MAXDRAWERS = 7;
-        
-        public static double width { get; set; }
-        public static double depth { get; set; }
-        public static int drawers { get; set; }
+
+        public double width { get; set; }
+        public  double depth { get; set; }
+        public int drawers { get; set; }
+        public string customerName { get; set; }
 
 
-       public static DesktopMaterial DeskMaterial { get; set; }
+        public DesktopMaterial DeskMaterial { get; set; }
 
-        /*Enums for my desktop material*/
-        public enum DesktopMaterial:int
-        {
-            oak = 200,
-            laminate = 100,
-            pine = 50,
-            rosewood = 300,
-            veneer = 125
-        }
-        
-        
 
     }
 }

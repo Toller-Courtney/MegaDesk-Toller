@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewAllQuotes));
             this.AllQuotesReturnToMain = new System.Windows.Forms.Button();
             this.ViewAllQuotesExitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AllQuotesReturnToMain
             // 
+            this.AllQuotesReturnToMain.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.AllQuotesReturnToMain.Location = new System.Drawing.Point(12, 398);
             this.AllQuotesReturnToMain.Name = "AllQuotesReturnToMain";
             this.AllQuotesReturnToMain.Size = new System.Drawing.Size(77, 40);
@@ -60,6 +62,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ViewAllQuotesExitButton);
             this.Controls.Add(this.AllQuotesReturnToMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ViewAllQuotes";
