@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,12 +18,12 @@ namespace MegaDesk_Toller
     {
         private double ToDouble(string str) { double value; if (double.TryParse(str, out value)) { return value; } return 0; }
         private int ToInt(string str) { int value; if (Int32.TryParse(str, out value)) { return value; } return 0; }
+       
         public AddQuote()
         {
 
             InitializeComponent();
             DesktopMaterialBox.DataSource = Enum.GetValues(typeof(DesktopMaterial));
-
 
         }
 
@@ -49,6 +51,7 @@ namespace MegaDesk_Toller
         private void SubmitQuoteButton_Click(object sender, EventArgs e)
         {
             //var customerName = Desk.customerName;
+
             var item = DesktopMaterialBox.SelectedItem.ToString();
             var material = DesktopMaterial.veneer;
             if (item == DesktopMaterial.laminate.ToString())
@@ -80,7 +83,51 @@ namespace MegaDesk_Toller
             {
                 days = 7;
             }
-            var quote = new DeskQuote(customerName.Text,ToDouble(width.Text), ToDouble(depth.Text), ToInt(drawers.Text), material, days);
+            var quote = new DeskQuote(customerName.Text, ToDouble(width.Text), ToDouble(depth.Text), ToInt(drawers.Text), material, days);
+
+            //Saving to a JSON file
+            try
+            {
+                // name where the file is located
+                var quoteJSONFile = @"quote.json";
+                //creating a new DeskQuotes list called deskOrders to store my information in
+                List<DeskQuote> deskOrders = new List<DeskQuote>();
+                //if my file exists then add the information to my list that already exists
+                if(File.Exists(quoteJSONFile))
+                {
+                    using (StreamReader reader = new StreamReader(quoteJSONFile))
+                    {
+                        string newQuotes = reader.ReadToEnd();
+                        if(newQuotes.Length >0)
+                        {
+                           deskOrders= JsonConvert.DeserializeObject<List<DeskQuote>>(newQuotes);
+                        }
+                        deskOrders.Add(quote);
+                    }
+                    //convert to JSON formate
+                    var serializeQuotes = JsonConvert.SerializeObject(deskOrders);
+                    //save to JSON file.
+                    File.WriteAllText(quoteJSONFile, serializeQuotes);
+
+                }
+                //if not, create a new list to add too.
+                else
+                {
+                    //create a list object of orders
+                    deskOrders = new List<DeskQuote> { quote };
+                    //convert to JSON formate
+                    var serializeQuotes = JsonConvert.SerializeObject(deskOrders);
+                    //save to JSON file.
+                    File.WriteAllText(quoteJSONFile, serializeQuotes);
+                }
+                
+            }
+            
+            catch (Exception)
+            {
+
+                throw;
+            }
             DisplayQuote viewDisplayQuote = new DisplayQuote(quote);
             viewDisplayQuote.Tag = this;
             viewDisplayQuote.Show(this);

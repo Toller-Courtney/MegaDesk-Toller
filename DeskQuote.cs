@@ -22,7 +22,10 @@ namespace MegaDesk_Toller
         public int RushDays { get; set; }
         //public static string customerName { get; set; }
         public string quoteDate { get; set; }
-        public double quoteTotal { get; set; }
+        public double quoteTotal {get; set;}
+
+        
+  
         //  private double ToDouble(string str) { double value; if (double.TryParse(str, out value)) { return value; } return 0; }
         //private int ToInt(string str) { int value; if (Int32.TryParse(str, out value)) { return value; } return 0; }
 

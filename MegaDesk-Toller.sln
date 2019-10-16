@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29306.81
+VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaDesk-Toller", "MegaDesk-Toller\MegaDesk-Toller.csproj", "{D8B841B6-898F-49E8-B6DB-2E897730A3C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaDesk-Toller", "MegaDesk-Toller.csproj", "{D8B841B6-898F-49E8-B6DB-2E897730A3C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B25B5D51-8154-446F-90EA-209704CBC69D}
+		SolutionGuid = {B6668B4C-218C-4F66-B152-ADD7A7DA9FA2}
 	EndGlobalSection
 EndGlobal
