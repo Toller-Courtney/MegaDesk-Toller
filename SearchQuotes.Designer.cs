@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchQuotes));
             this.SearchQuotesReturnToMain = new System.Windows.Forms.Button();
             this.SearchQuotesExitButton = new System.Windows.Forms.Button();
+            this.materialSearchBox = new System.Windows.Forms.ComboBox();
+            this.SearchMaterialLabel = new System.Windows.Forms.Label();
+            this.SearchGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchQuotesReturnToMain
@@ -53,12 +57,43 @@
             this.SearchQuotesExitButton.Text = "Exit MegaDesk";
             this.SearchQuotesExitButton.UseVisualStyleBackColor = true;
             // 
+            // materialSearchBox
+            // 
+            this.materialSearchBox.FormattingEnabled = true;
+            this.materialSearchBox.Location = new System.Drawing.Point(417, 23);
+            this.materialSearchBox.Name = "materialSearchBox";
+            this.materialSearchBox.Size = new System.Drawing.Size(121, 21);
+            this.materialSearchBox.TabIndex = 2;
+            this.materialSearchBox.SelectedIndexChanged += new System.EventHandler(this.materialSearchBox_SelectedIndexChanged);
+            // 
+            // SearchMaterialLabel
+            // 
+            this.SearchMaterialLabel.AutoSize = true;
+            this.SearchMaterialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchMaterialLabel.Location = new System.Drawing.Point(269, 24);
+            this.SearchMaterialLabel.Name = "SearchMaterialLabel";
+            this.SearchMaterialLabel.Size = new System.Drawing.Size(142, 20);
+            this.SearchMaterialLabel.TabIndex = 3;
+            this.SearchMaterialLabel.Text = "Search By Material";
+            // 
+            // SearchGridView
+            // 
+            this.SearchGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SearchGridView.Location = new System.Drawing.Point(12, 64);
+            this.SearchGridView.Name = "SearchGridView";
+            this.SearchGridView.Size = new System.Drawing.Size(776, 150);
+            this.SearchGridView.TabIndex = 4;
+            this.SearchGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SearchGridView_CellContentClick);
+            // 
             // SearchQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.SearchQuotesReturnToMain;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SearchGridView);
+            this.Controls.Add(this.SearchMaterialLabel);
+            this.Controls.Add(this.materialSearchBox);
             this.Controls.Add(this.SearchQuotesExitButton);
             this.Controls.Add(this.SearchQuotesReturnToMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -66,7 +101,9 @@
             this.MinimizeBox = false;
             this.Name = "SearchQuotes";
             this.Text = "Search Quotes";
+            ((System.ComponentModel.ISupportInitialize)(this.SearchGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -74,5 +111,8 @@
 
         private System.Windows.Forms.Button SearchQuotesReturnToMain;
         private System.Windows.Forms.Button SearchQuotesExitButton;
+        private System.Windows.Forms.ComboBox materialSearchBox;
+        private System.Windows.Forms.Label SearchMaterialLabel;
+        private System.Windows.Forms.DataGridView SearchGridView;
     }
 }

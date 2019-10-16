@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -95,6 +96,27 @@ namespace MegaDesk_Toller
 
         }
 
+
+        // 3x3 dimension array in try catch block use readAllLines to get single dimension array 
+        //use nested loops to populate two dimensional arry with 3 rows 3 columns.
+
+        public int getRushOrder()
+        {
+            try
+            {
+                string rushDayFilePath = @"rushOrderPrices.txt";
+                string[] prices = File.ReadAllLines(rushDayFilePath);
+                foreach (string rushDays in prices)
+                {
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public double calcSurfaceAreaCost()
         {
             if (calcSurfaceArea() > SMALLDESK)
