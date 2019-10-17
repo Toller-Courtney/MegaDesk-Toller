@@ -21,14 +21,11 @@ namespace MegaDesk_Toller
 
 
         public int RushDays { get; set; }
-        //public static string customerName { get; set; }
         public string quoteDate { get; set; }
         public double quoteTotal {get; set;}
 
         
-  
-        //  private double ToDouble(string str) { double value; if (double.TryParse(str, out value)) { return value; } return 0; }
-        //private int ToInt(string str) { int value; if (Int32.TryParse(str, out value)) { return value; } return 0; }
+ 
 
         public DeskQuote(string customerName, double width, double depth, int drawers, DesktopMaterial materialList, int rushDays)
         {
@@ -96,8 +93,8 @@ namespace MegaDesk_Toller
 
         }
 
-
-        // 3x3 dimension array in try catch block use readAllLines to get single dimension array 
+        // instead of using the above calShippingRate() I have to use the "rushOrderPrices.txt" file to read in the appropriate price
+        // I have to us a 3x3 dimension array in try catch block with the readAllLines to get single dimension array 
         //use nested loops to populate two dimensional arry with 3 rows 3 columns.
 
         public int getRushOrder()
@@ -152,8 +149,7 @@ namespace MegaDesk_Toller
 
             }
         }
-        /*Figure out why this is still showing errors.
-         * also figure out how to do the calculation from the input and then display to DisplayQuote.cs*/
+      
         public double calcQuoteTotal()
         {
             quoteTotal= BASECOST + calcDrawerCost() + calcSurfaceAreaCost() + getMaterialCost() + calcShippingRate();

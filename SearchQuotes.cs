@@ -30,7 +30,7 @@ namespace MegaDesk_Toller
         private void SearchGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //load the quotes with the correct material selected by user
-            //Pull the quotes from the quote.json file.
+            //Pull the quotes from the quote.json file that match the users selection.
             //example if oak is selected, search through file and pull only oak to display on screen
             try
             {

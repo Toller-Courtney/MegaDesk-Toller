@@ -50,7 +50,7 @@ namespace MegaDesk_Toller
 
         private void SubmitQuoteButton_Click(object sender, EventArgs e)
         {
-            //var customerName = Desk.customerName;
+           
 
             var item = DesktopMaterialBox.SelectedItem.ToString();
             var material = DesktopMaterial.veneer;
@@ -85,7 +85,7 @@ namespace MegaDesk_Toller
             }
             var quote = new DeskQuote(customerName.Text, ToDouble(width.Text), ToDouble(depth.Text), ToInt(drawers.Text), material, days);
 
-            //Saving to a JSON file
+            //This is Saving to a JSON file
             try
             {
                 // name where the file is located
