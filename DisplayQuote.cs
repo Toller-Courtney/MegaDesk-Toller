@@ -26,7 +26,8 @@ namespace MegaDesk_Toller
 
         private void DisplayQuoteReturnToMain_Click(object sender, EventArgs e)
         {
-            //Figure out why this isn't working and doesn't return to main.
+            //Figure out why this isn't working and doesn't return to main. I think it is because tag is already being used from
+            //addQuote to display this form and it is getting confused.All my other return to main menus work except this one. 
             MainMenu viewMainMenu = (MainMenu)Tag;
             viewMainMenu.Show();
             Close();
@@ -57,9 +58,6 @@ namespace MegaDesk_Toller
             materialInputLabel.Text = Quote.DeskMaterial.ToString();
             rushDayInputLabel.Text = Quote.RushDays.ToString();
             totalOutputLabel.Text = Quote.calcQuoteTotal().ToString();
-
-            //name add to call or pass it is as a nother variable. because we are passingin class 
-            //customer name to class.
 
         }
     }
