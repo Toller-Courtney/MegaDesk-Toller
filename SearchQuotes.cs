@@ -27,7 +27,17 @@ namespace MegaDesk_Toller
             Close();
         }
 
-        private void SearchGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    
+
+        private void materialSearchBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if desktop material matches selection, display from json file.
+
+
+            
+        }
+
+        private void SearchQuotes_Load(object sender, EventArgs e)
         {
             //load the quotes with the correct material selected by user
             //Pull the quotes from the quote.json file that match the users selection.
@@ -62,12 +72,6 @@ namespace MegaDesk_Toller
                 throw;
             }
 
-        }
-
-        private void materialSearchBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //if desktop material matches selection, display from json file.
-            
         }
     }
 }

@@ -83,8 +83,7 @@
             this.SearchGridView.Name = "SearchGridView";
             this.SearchGridView.Size = new System.Drawing.Size(776, 150);
             this.SearchGridView.TabIndex = 4;
-            this.SearchGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SearchGridView_CellContentClick);
-            // 
+           // 
             // SearchQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -101,6 +100,7 @@
             this.MinimizeBox = false;
             this.Name = "SearchQuotes";
             this.Text = "Search Quotes";
+            this.Load += new System.EventHandler(this.SearchQuotes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SearchGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
