@@ -129,7 +129,7 @@ namespace MegaDesk_Toller
                 throw;
             }
             DisplayQuote viewDisplayQuote = new DisplayQuote(quote);
-            viewDisplayQuote.Tag = this;
+            viewDisplayQuote.Tag = Tag;
             viewDisplayQuote.Show(this);
             Hide();
 
