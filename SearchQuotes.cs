@@ -33,30 +33,37 @@ namespace MegaDesk_Toller
         {
             //if desktop material matches selection, display from json file.
 
-
-            
-        }
-
-        private void SearchQuotes_Load(object sender, EventArgs e)
-        {
             //load the quotes with the correct material selected by user
             //Pull the quotes from the quote.json file that match the users selection.
             //example if oak is selected, search through file and pull only oak to display on screen
             try
             {
                 var orderFile = @"quote.json";
-
+                string materialSelected = materialSearchBox.SelectedItem.ToString();
                 using (StreamReader reader = new StreamReader(orderFile))
                 {
                     string newQuotes = reader.ReadToEnd();
                     List<DeskQuote> deskOrders = JsonConvert.DeserializeObject<List<DeskQuote>>(newQuotes);
-                    SearchGridView.DataSource = deskOrders.Select(desk => new
+                    List<DeskQuote> showOrders = new List<DeskQuote>();
+
+                    //  where(materialSelected => materialSelected.DesktopMaterial.ToString() == materialSearchBox.Text)
+
+
+                     foreach(DeskQuote selectedQuote in deskOrders)
+                     {
+                         if(selectedQuote.DeskMaterial.ToString()==materialSelected)
+                         {
+                             showOrders.Add(selectedQuote);
+                         }
+                     }
+                    SearchGridView.DataSource = showOrders.Select(desk => new
                     {
                         Date = desk.quoteDate,
                         Customer = desk.customerName,
                         Width = desk.width,
                         Depth = desk.depth,
                         Drawers = desk.drawers,
+                        Material= desk.DeskMaterial,
                         RushOrder = desk.RushDays,
                         Total = desk.calcQuoteTotal()
 
@@ -73,5 +80,12 @@ namespace MegaDesk_Toller
             }
 
         }
+
+        private void SearchQuotesExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
+
+
 }

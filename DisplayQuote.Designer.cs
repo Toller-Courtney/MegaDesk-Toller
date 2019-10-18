@@ -57,7 +57,7 @@
             // 
             this.displayQuoteWelcomeLabel.AutoSize = true;
             this.displayQuoteWelcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayQuoteWelcomeLabel.Location = new System.Drawing.Point(195, 32);
+            this.displayQuoteWelcomeLabel.Location = new System.Drawing.Point(142, 32);
             this.displayQuoteWelcomeLabel.Name = "displayQuoteWelcomeLabel";
             this.displayQuoteWelcomeLabel.Size = new System.Drawing.Size(261, 24);
             this.displayQuoteWelcomeLabel.TabIndex = 0;
@@ -66,7 +66,7 @@
             // 
             // displayQuoteReturnToMain
             // 
-            this.displayQuoteReturnToMain.Location = new System.Drawing.Point(455, 390);
+            this.displayQuoteReturnToMain.Location = new System.Drawing.Point(423, 334);
             this.displayQuoteReturnToMain.Name = "displayQuoteReturnToMain";
             this.displayQuoteReturnToMain.Size = new System.Drawing.Size(90, 48);
             this.displayQuoteReturnToMain.TabIndex = 1;
@@ -76,9 +76,9 @@
             // 
             // displayQuoteExit
             // 
-            this.displayQuoteExit.Location = new System.Drawing.Point(551, 390);
+            this.displayQuoteExit.Location = new System.Drawing.Point(423, 390);
             this.displayQuoteExit.Name = "displayQuoteExit";
-            this.displayQuoteExit.Size = new System.Drawing.Size(95, 48);
+            this.displayQuoteExit.Size = new System.Drawing.Size(90, 48);
             this.displayQuoteExit.TabIndex = 2;
             this.displayQuoteExit.Text = "Exit MegaDesk";
             this.displayQuoteExit.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@
             // 
             this.displayQuoteDateLabel.AutoSize = true;
             this.displayQuoteDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayQuoteDateLabel.Location = new System.Drawing.Point(212, 349);
+            this.displayQuoteDateLabel.Location = new System.Drawing.Point(204, 349);
             this.displayQuoteDateLabel.Name = "displayQuoteDateLabel";
             this.displayQuoteDateLabel.Size = new System.Drawing.Size(46, 24);
             this.displayQuoteDateLabel.TabIndex = 4;
@@ -111,7 +111,7 @@
             // 
             this.customerNameLabel.AutoSize = true;
             this.customerNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerNameLabel.Location = new System.Drawing.Point(93, 81);
+            this.customerNameLabel.Location = new System.Drawing.Point(132, 81);
             this.customerNameLabel.Name = "customerNameLabel";
             this.customerNameLabel.Size = new System.Drawing.Size(66, 24);
             this.customerNameLabel.TabIndex = 5;
@@ -122,7 +122,7 @@
             // 
             this.userInputDisplayLabel.AutoSize = true;
             this.userInputDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userInputDisplayLabel.Location = new System.Drawing.Point(212, 81);
+            this.userInputDisplayLabel.Location = new System.Drawing.Point(204, 81);
             this.userInputDisplayLabel.Name = "userInputDisplayLabel";
             this.userInputDisplayLabel.Size = new System.Drawing.Size(185, 24);
             this.userInputDisplayLabel.TabIndex = 6;
@@ -155,7 +155,7 @@
             // 
             this.drawerNumerLabel.AutoSize = true;
             this.drawerNumerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drawerNumerLabel.Location = new System.Drawing.Point(93, 220);
+            this.drawerNumerLabel.Location = new System.Drawing.Point(114, 220);
             this.drawerNumerLabel.Name = "drawerNumerLabel";
             this.drawerNumerLabel.Size = new System.Drawing.Size(84, 24);
             this.drawerNumerLabel.TabIndex = 9;
@@ -166,7 +166,7 @@
             // 
             this.selectedMaterialLabel.AutoSize = true;
             this.selectedMaterialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectedMaterialLabel.Location = new System.Drawing.Point(93, 262);
+            this.selectedMaterialLabel.Location = new System.Drawing.Point(118, 262);
             this.selectedMaterialLabel.Name = "selectedMaterialLabel";
             this.selectedMaterialLabel.Size = new System.Drawing.Size(80, 24);
             this.selectedMaterialLabel.TabIndex = 10;
@@ -188,7 +188,7 @@
             // 
             this.quoteDateLabel.AutoSize = true;
             this.quoteDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quoteDateLabel.Location = new System.Drawing.Point(93, 349);
+            this.quoteDateLabel.Location = new System.Drawing.Point(88, 349);
             this.quoteDateLabel.Name = "quoteDateLabel";
             this.quoteDateLabel.Size = new System.Drawing.Size(110, 24);
             this.quoteDateLabel.TabIndex = 12;
@@ -199,7 +199,7 @@
             // 
             this.userInputWidthLabel.AutoSize = true;
             this.userInputWidthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userInputWidthLabel.Location = new System.Drawing.Point(212, 123);
+            this.userInputWidthLabel.Location = new System.Drawing.Point(204, 123);
             this.userInputWidthLabel.Name = "userInputWidthLabel";
             this.userInputWidthLabel.Size = new System.Drawing.Size(102, 24);
             this.userInputWidthLabel.TabIndex = 13;
@@ -210,7 +210,7 @@
             // 
             this.depthInputLabel.AutoSize = true;
             this.depthInputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.depthInputLabel.Location = new System.Drawing.Point(212, 172);
+            this.depthInputLabel.Location = new System.Drawing.Point(204, 172);
             this.depthInputLabel.Name = "depthInputLabel";
             this.depthInputLabel.Size = new System.Drawing.Size(107, 24);
             this.depthInputLabel.TabIndex = 14;
@@ -221,7 +221,7 @@
             // 
             this.drawerInputLabel.AutoSize = true;
             this.drawerInputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drawerInputLabel.Location = new System.Drawing.Point(212, 220);
+            this.drawerInputLabel.Location = new System.Drawing.Point(204, 220);
             this.drawerInputLabel.Name = "drawerInputLabel";
             this.drawerInputLabel.Size = new System.Drawing.Size(183, 24);
             this.drawerInputLabel.TabIndex = 15;
@@ -232,7 +232,7 @@
             // 
             this.materialInputLabel.AutoSize = true;
             this.materialInputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialInputLabel.Location = new System.Drawing.Point(212, 262);
+            this.materialInputLabel.Location = new System.Drawing.Point(204, 262);
             this.materialInputLabel.Name = "materialInputLabel";
             this.materialInputLabel.Size = new System.Drawing.Size(199, 24);
             this.materialInputLabel.TabIndex = 16;
@@ -243,7 +243,7 @@
             // 
             this.rushDayInputLabel.AutoSize = true;
             this.rushDayInputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rushDayInputLabel.Location = new System.Drawing.Point(212, 307);
+            this.rushDayInputLabel.Location = new System.Drawing.Point(204, 307);
             this.rushDayInputLabel.Name = "rushDayInputLabel";
             this.rushDayInputLabel.Size = new System.Drawing.Size(221, 24);
             this.rushDayInputLabel.TabIndex = 17;
@@ -254,7 +254,7 @@
             // 
             this.quoteTotalLabe.AutoSize = true;
             this.quoteTotalLabe.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quoteTotalLabe.Location = new System.Drawing.Point(93, 390);
+            this.quoteTotalLabe.Location = new System.Drawing.Point(70, 390);
             this.quoteTotalLabe.Name = "quoteTotalLabe";
             this.quoteTotalLabe.Size = new System.Drawing.Size(128, 24);
             this.quoteTotalLabe.TabIndex = 18;
@@ -264,7 +264,7 @@
             // 
             this.totalOutputLabel.AutoSize = true;
             this.totalOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalOutputLabel.Location = new System.Drawing.Point(227, 390);
+            this.totalOutputLabel.Location = new System.Drawing.Point(204, 390);
             this.totalOutputLabel.Name = "totalOutputLabel";
             this.totalOutputLabel.Size = new System.Drawing.Size(144, 24);
             this.totalOutputLabel.TabIndex = 19;
@@ -274,7 +274,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 450);
+            this.ClientSize = new System.Drawing.Size(543, 450);
             this.Controls.Add(this.totalOutputLabel);
             this.Controls.Add(this.quoteTotalLabe);
             this.Controls.Add(this.rushDayInputLabel);

@@ -24,7 +24,7 @@ namespace MegaDesk_Toller
 
             InitializeComponent();
             DesktopMaterialBox.DataSource = Enum.GetValues(typeof(DesktopMaterial));
-
+            quoteDateLabel.Text = DateTime.Now.ToString("dd MMM yyyy");
         }
 
         private void AddQuoteReturnToMainButton_Click(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace MegaDesk_Toller
             {
                 days = 7;
             }
-            var quote = new DeskQuote(customerName.Text, ToDouble(width.Text), ToDouble(depth.Text), ToInt(drawers.Text), material, days);
+            var quote = new DeskQuote(customerName.Text, ToDouble(width.Text), ToDouble(depth.Text), ToInt(drawers.Text), material, days, quoteDateLabel.Text);
 
             //This is Saving to a JSON file
             try

@@ -21,13 +21,13 @@ namespace MegaDesk_Toller
 
 
         public int RushDays { get; set; }
-        public string quoteDate { get; set; }
+        //public string quoteDate { get; set; }
         public double quoteTotal {get; set;}
 
         
  
 
-        public DeskQuote(string customerName, double width, double depth, int drawers, DesktopMaterial materialList, int rushDays)
+        public DeskQuote(string customerName, double width, double depth, int drawers, DesktopMaterial materialList, int rushDays, string quoteDate)
         {
             this.customerName = customerName;
             this.width = width;
@@ -35,6 +35,7 @@ namespace MegaDesk_Toller
             this.drawers = drawers;
             RushDays = rushDays;
             DeskMaterial = materialList;
+            this.quoteDate = quoteDate;
 
         }
 
@@ -97,7 +98,7 @@ namespace MegaDesk_Toller
         // I have to us a 3x3 dimension array in try catch block with the readAllLines to get single dimension array 
         //use nested loops to populate two dimensional arry with 3 rows 3 columns.
 
-        public int getRushOrder()
+       /* public int getRushOrder()
         {
             try
             {
@@ -113,7 +114,7 @@ namespace MegaDesk_Toller
 
                 throw;
             }
-        }
+        }*/
         public double calcSurfaceAreaCost()
         {
             if (calcSurfaceArea() > SMALLDESK)
@@ -155,7 +156,12 @@ namespace MegaDesk_Toller
             quoteTotal= BASECOST + calcDrawerCost() + calcSurfaceAreaCost() + getMaterialCost() + calcShippingRate();
             return quoteTotal;
         }
+        public string GetDate()
+        {
+            return quoteDate;
+        }
 
     }
+   
 
 }

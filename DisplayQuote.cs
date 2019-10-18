@@ -28,15 +28,16 @@ namespace MegaDesk_Toller
         {
             //Figure out why this isn't working and doesn't return to main. I think it is because tag is already being used from
             //addQuote to display this form and it is getting confused.All my other return to main menus work except this one. 
-            MainMenu viewMainMenu = (MainMenu)Tag;
+           MainMenu viewMainMenu = (MainMenu)Tag;
             viewMainMenu.Show();
             Close();
+
         }
 
         private void Quotedate_Tick(object sender, EventArgs e)
         {
-            DateTime date = DateTime.Now;
-            displayQuoteDateLabel.Text = date.ToString("dd MMM yyy");
+           // DateTime date = DateTime.Now;
+           // displayQuoteDateLabel.Text = date.ToString("dd MMM yyy");
         }
 
         private void DisplayQuoteExit_Click(object sender, EventArgs e)
@@ -57,6 +58,7 @@ namespace MegaDesk_Toller
             drawerInputLabel.Text = Quote.drawers.ToString();
             materialInputLabel.Text = Quote.DeskMaterial.ToString();
             rushDayInputLabel.Text = Quote.RushDays.ToString();
+            displayQuoteDate.Text = Quote.GetDate();
             totalOutputLabel.Text = Quote.calcQuoteTotal().ToString();
 
         }

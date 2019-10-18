@@ -19,6 +19,7 @@ namespace MegaDesk_Toller
         public  double depth { get; set; }
         public int drawers { get; set; }
         public string customerName { get; set; }
+        public string quoteDate { get; set; }
 
 
         public DesktopMaterial DeskMaterial { get; set; }

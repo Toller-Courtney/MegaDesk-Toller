@@ -53,6 +53,8 @@
             this.widthError = new System.Windows.Forms.ErrorProvider(this.components);
             this.depthError = new System.Windows.Forms.ErrorProvider(this.components);
             this.drawerError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.quotedate = new System.Windows.Forms.Timer(this.components);
+            this.quoteDateLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nameError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthError)).BeginInit();
@@ -62,7 +64,7 @@
             // addQuoteReturnToMainButton
             // 
             this.addQuoteReturnToMainButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.addQuoteReturnToMainButton.Location = new System.Drawing.Point(544, 393);
+            this.addQuoteReturnToMainButton.Location = new System.Drawing.Point(339, 343);
             this.addQuoteReturnToMainButton.Name = "addQuoteReturnToMainButton";
             this.addQuoteReturnToMainButton.Size = new System.Drawing.Size(78, 45);
             this.addQuoteReturnToMainButton.TabIndex = 0;
@@ -72,9 +74,9 @@
             // 
             // AddNewQuoteExitButton
             // 
-            this.AddNewQuoteExitButton.Location = new System.Drawing.Point(628, 393);
+            this.AddNewQuoteExitButton.Location = new System.Drawing.Point(339, 394);
             this.AddNewQuoteExitButton.Name = "AddNewQuoteExitButton";
-            this.AddNewQuoteExitButton.Size = new System.Drawing.Size(87, 45);
+            this.AddNewQuoteExitButton.Size = new System.Drawing.Size(78, 45);
             this.AddNewQuoteExitButton.TabIndex = 1;
             this.AddNewQuoteExitButton.Text = "Exit MegaDesk";
             this.AddNewQuoteExitButton.UseVisualStyleBackColor = true;
@@ -84,7 +86,7 @@
             // 
             this.addQuoteWelcomeLabel.AutoSize = true;
             this.addQuoteWelcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addQuoteWelcomeLabel.Location = new System.Drawing.Point(183, 9);
+            this.addQuoteWelcomeLabel.Location = new System.Drawing.Point(87, 9);
             this.addQuoteWelcomeLabel.Name = "addQuoteWelcomeLabel";
             this.addQuoteWelcomeLabel.Size = new System.Drawing.Size(330, 24);
             this.addQuoteWelcomeLabel.TabIndex = 2;
@@ -95,7 +97,7 @@
             // 
             this.widthLabel.AutoSize = true;
             this.widthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.widthLabel.Location = new System.Drawing.Point(117, 125);
+            this.widthLabel.Location = new System.Drawing.Point(85, 125);
             this.widthLabel.Name = "widthLabel";
             this.widthLabel.Size = new System.Drawing.Size(118, 20);
             this.widthLabel.TabIndex = 3;
@@ -106,7 +108,7 @@
             // 
             this.depthLabel.AutoSize = true;
             this.depthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.depthLabel.Location = new System.Drawing.Point(114, 175);
+            this.depthLabel.Location = new System.Drawing.Point(78, 173);
             this.depthLabel.Name = "depthLabel";
             this.depthLabel.Size = new System.Drawing.Size(125, 20);
             this.depthLabel.TabIndex = 4;
@@ -117,7 +119,7 @@
             // 
             this.widthRestricionLabel.AutoSize = true;
             this.widthRestricionLabel.ForeColor = System.Drawing.Color.Blue;
-            this.widthRestricionLabel.Location = new System.Drawing.Point(134, 145);
+            this.widthRestricionLabel.Location = new System.Drawing.Point(92, 145);
             this.widthRestricionLabel.Name = "widthRestricionLabel";
             this.widthRestricionLabel.Size = new System.Drawing.Size(111, 13);
             this.widthRestricionLabel.TabIndex = 5;
@@ -128,7 +130,7 @@
             // 
             this.depthRestrictionLabel.AutoSize = true;
             this.depthRestrictionLabel.ForeColor = System.Drawing.Color.Blue;
-            this.depthRestrictionLabel.Location = new System.Drawing.Point(134, 195);
+            this.depthRestrictionLabel.Location = new System.Drawing.Point(94, 193);
             this.depthRestrictionLabel.Name = "depthRestrictionLabel";
             this.depthRestrictionLabel.Size = new System.Drawing.Size(111, 13);
             this.depthRestrictionLabel.TabIndex = 6;
@@ -139,7 +141,7 @@
             // 
             this.drawerNumberLabel.AutoSize = true;
             this.drawerNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drawerNumberLabel.Location = new System.Drawing.Point(114, 225);
+            this.drawerNumberLabel.Location = new System.Drawing.Point(59, 225);
             this.drawerNumberLabel.Name = "drawerNumberLabel";
             this.drawerNumberLabel.Size = new System.Drawing.Size(146, 20);
             this.drawerNumberLabel.TabIndex = 7;
@@ -150,7 +152,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(134, 245);
+            this.label1.Location = new System.Drawing.Point(103, 245);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 8;
@@ -161,7 +163,7 @@
             // 
             this.desktopMaterialLabel.AutoSize = true;
             this.desktopMaterialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.desktopMaterialLabel.Location = new System.Drawing.Point(114, 279);
+            this.desktopMaterialLabel.Location = new System.Drawing.Point(74, 276);
             this.desktopMaterialLabel.Name = "desktopMaterialLabel";
             this.desktopMaterialLabel.Size = new System.Drawing.Size(129, 20);
             this.desktopMaterialLabel.TabIndex = 9;
@@ -170,7 +172,7 @@
             // 
             // width
             // 
-            this.width.Location = new System.Drawing.Point(291, 125);
+            this.width.Location = new System.Drawing.Point(209, 127);
             this.width.Name = "width";
             this.width.Size = new System.Drawing.Size(100, 20);
             this.width.TabIndex = 10;
@@ -179,7 +181,7 @@
             // 
             // depth
             // 
-            this.depth.Location = new System.Drawing.Point(291, 175);
+            this.depth.Location = new System.Drawing.Point(209, 175);
             this.depth.Name = "depth";
             this.depth.Size = new System.Drawing.Size(100, 20);
             this.depth.TabIndex = 11;
@@ -188,7 +190,7 @@
             // 
             // drawers
             // 
-            this.drawers.Location = new System.Drawing.Point(291, 227);
+            this.drawers.Location = new System.Drawing.Point(209, 227);
             this.drawers.Name = "drawers";
             this.drawers.Size = new System.Drawing.Size(100, 20);
             this.drawers.TabIndex = 12;
@@ -198,7 +200,7 @@
             // DesktopMaterialBox
             // 
             this.DesktopMaterialBox.FormattingEnabled = true;
-            this.DesktopMaterialBox.Location = new System.Drawing.Point(291, 278);
+            this.DesktopMaterialBox.Location = new System.Drawing.Point(209, 278);
             this.DesktopMaterialBox.Name = "DesktopMaterialBox";
             this.DesktopMaterialBox.Size = new System.Drawing.Size(100, 21);
             this.DesktopMaterialBox.TabIndex = 13;
@@ -207,7 +209,7 @@
             // 
             this.RushOrderLabel.AutoSize = true;
             this.RushOrderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RushOrderLabel.Location = new System.Drawing.Point(114, 330);
+            this.RushOrderLabel.Location = new System.Drawing.Point(112, 327);
             this.RushOrderLabel.Name = "RushOrderLabel";
             this.RushOrderLabel.Size = new System.Drawing.Size(91, 20);
             this.RushOrderLabel.TabIndex = 14;
@@ -222,7 +224,7 @@
             "3 Days",
             "5 Days",
             "7 Days"});
-            this.rushDays.Location = new System.Drawing.Point(291, 329);
+            this.rushDays.Location = new System.Drawing.Point(209, 329);
             this.rushDays.Name = "rushDays";
             this.rushDays.Size = new System.Drawing.Size(100, 21);
             this.rushDays.TabIndex = 15;
@@ -232,7 +234,7 @@
             // 
             this.customerNameLabel.AutoSize = true;
             this.customerNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerNameLabel.Location = new System.Drawing.Point(116, 78);
+            this.customerNameLabel.Location = new System.Drawing.Point(114, 78);
             this.customerNameLabel.Name = "customerNameLabel";
             this.customerNameLabel.Size = new System.Drawing.Size(89, 20);
             this.customerNameLabel.TabIndex = 17;
@@ -241,16 +243,16 @@
             // 
             // customerName
             // 
-            this.customerName.Location = new System.Drawing.Point(291, 78);
+            this.customerName.Location = new System.Drawing.Point(209, 80);
             this.customerName.Name = "customerName";
-            this.customerName.Size = new System.Drawing.Size(100, 20);
+            this.customerName.Size = new System.Drawing.Size(163, 20);
             this.customerName.TabIndex = 18;
             this.customerName.Validating += new System.ComponentModel.CancelEventHandler(this.CustomerName_Validating);
             // 
             // submitQuoteButton
             // 
             this.submitQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitQuoteButton.Location = new System.Drawing.Point(228, 380);
+            this.submitQuoteButton.Location = new System.Drawing.Point(155, 371);
             this.submitQuoteButton.Name = "submitQuoteButton";
             this.submitQuoteButton.Size = new System.Drawing.Size(113, 29);
             this.submitQuoteButton.TabIndex = 19;
@@ -274,12 +276,22 @@
             // 
             this.drawerError.ContainerControl = this;
             // 
+            // quoteDateLabel
+            // 
+            this.quoteDateLabel.AutoSize = true;
+            this.quoteDateLabel.Location = new System.Drawing.Point(12, 428);
+            this.quoteDateLabel.Name = "quoteDateLabel";
+            this.quoteDateLabel.Size = new System.Drawing.Size(57, 13);
+            this.quoteDateLabel.TabIndex = 20;
+            this.quoteDateLabel.Text = "quoteDate";
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.addQuoteReturnToMainButton;
-            this.ClientSize = new System.Drawing.Size(727, 450);
+            this.ClientSize = new System.Drawing.Size(468, 450);
+            this.Controls.Add(this.quoteDateLabel);
             this.Controls.Add(this.submitQuoteButton);
             this.Controls.Add(this.customerName);
             this.Controls.Add(this.customerNameLabel);
@@ -338,5 +350,7 @@
         private System.Windows.Forms.ErrorProvider widthError;
         private System.Windows.Forms.ErrorProvider depthError;
         private System.Windows.Forms.ErrorProvider drawerError;
+        private System.Windows.Forms.Timer quotedate;
+        private System.Windows.Forms.Label quoteDateLabel;
     }
 }
