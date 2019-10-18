@@ -17,15 +17,15 @@ namespace MegaDesk_Toller
         public const int THREEDAYRUSH = 3;
         public const int FIVEDAYRUSH = 5;
         public const int SEVENDAYRUSH = 7;
-        
+
 
 
         public int RushDays { get; set; }
         //public string quoteDate { get; set; }
-        public double quoteTotal {get; set;}
+        public double quoteTotal { get; set; }
 
-        
- 
+
+
 
         public DeskQuote(string customerName, double width, double depth, int drawers, DesktopMaterial materialList, int rushDays, string quoteDate)
         {
@@ -47,13 +47,66 @@ namespace MegaDesk_Toller
         }
         /*This method calculations the shipping cost based on the surface area
          of the desk and that days seleced for rush order*/
-        public double calcShippingRate()
+        public double calcShippingRate(int days, int surfaceArea)
         {
             int shippingRate = 0;
-            //calculate3 day shipping
-            if (calcSurfaceArea() < SMALLDESK && RushDays == THREEDAYRUSH)
+
+            switch (days)
             {
-                shippingRate = 60;
+                case 3:
+                    if (calcSurfaceArea() < SMALLDESK)
+                    {
+                        shippingRate = getRushOrder()[0, 0];
+                    }
+                    else if (calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK)
+                    {
+                        shippingRate = getRushOrder()[0, 1];
+                    }
+                    else
+                    {
+                        shippingRate = getRushOrder()[0, 2];
+                    }
+                    break;
+
+                case 5:
+                    if (calcSurfaceArea() < SMALLDESK)
+                    {
+                        shippingRate = getRushOrder()[1, 0];
+                    }
+                    else if (calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK)
+                    {
+                        shippingRate = getRushOrder()[1, 1];
+                    }
+                    else
+                    {
+                        shippingRate = getRushOrder()[1, 2];
+                    }
+                    break;
+                case 7:
+                    if (calcSurfaceArea() < SMALLDESK)
+                    {
+                        shippingRate = getRushOrder()[2, 0];
+                    }
+                    else if (calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK)
+                    {
+                        shippingRate = getRushOrder()[2, 1];
+                    }
+                    else
+                    {
+                        shippingRate = getRushOrder()[2, 2];
+                    }
+                    break;
+                default:
+                    shippingRate = 0;
+                    break;
+            
+        }
+            return shippingRate;
+    
+            //calculate3 day shipping
+           /* if (calcSurfaceArea() < SMALLDESK && RushDays == THREEDAYRUSH)
+            {
+                shippingRate = 0;
             }
 
             else if ((calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK) && RushDays == THREEDAYRUSH)
@@ -90,31 +143,42 @@ namespace MegaDesk_Toller
             {
                 shippingRate = 40;
             }
-            return shippingRate;
+            return shippingRate;*/
 
         }
-
+        
         // instead of using the above calShippingRate() I have to use the "rushOrderPrices.txt" file to read in the appropriate price
         // I have to us a 3x3 dimension array in try catch block with the readAllLines to get single dimension array 
         //use nested loops to populate two dimensional arry with 3 rows 3 columns.
 
-       /* public int getRushOrder()
+       public int[,] getRushOrder()
         {
             try
             {
                 string rushDayFilePath = @"rushOrderPrices.txt";
                 string[] prices = File.ReadAllLines(rushDayFilePath);
-                foreach (string rushDays in prices)
-                {
+                // var grid = new List<List<string>>();
+                int[,] rushOrderPrice = new int[3, 3];
 
+                for (int i=0; i<3; i++)
+                {
+                    //var subList = new List<string>();
+                    for (int j=0; j<3; j++)
+                    {
+                        rushOrderPrice[i, j] = Int32.Parse(prices[(i * 3) + j]);
+                        //subList.Add(prices[i + j + 1]);
+                    }
+                    //grid.Add(subList);
                 }
+                return rushOrderPrice;
             }
             catch (Exception)
             {
 
                 throw;
             }
-        }*/
+            
+        }
         public double calcSurfaceAreaCost()
         {
             if (calcSurfaceArea() > SMALLDESK)
