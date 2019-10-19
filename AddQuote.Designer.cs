@@ -228,7 +228,6 @@
             this.rushDays.Name = "rushDays";
             this.rushDays.Size = new System.Drawing.Size(100, 21);
             this.rushDays.TabIndex = 15;
-            this.rushDays.SelectedIndexChanged += new System.EventHandler(this.DeskMaterialDropDown_SelectedIndexChanged);
             // 
             // customerNameLabel
             // 

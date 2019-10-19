@@ -94,7 +94,6 @@
             // 
             // quotedate
             // 
-            this.quotedate.Tick += new System.EventHandler(this.Quotedate_Tick);
             // 
             // displayQuoteDateLabel
             // 
@@ -105,7 +104,6 @@
             this.displayQuoteDateLabel.Size = new System.Drawing.Size(46, 24);
             this.displayQuoteDateLabel.TabIndex = 4;
             this.displayQuoteDateLabel.Text = "date";
-            this.displayQuoteDateLabel.Click += new System.EventHandler(this.DisplayQuoteDateLabel_Click);
             // 
             // customerNameLabel
             // 

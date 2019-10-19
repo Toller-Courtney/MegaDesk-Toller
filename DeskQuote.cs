@@ -21,7 +21,6 @@ namespace MegaDesk_Toller
 
 
         public int RushDays { get; set; }
-        //public string quoteDate { get; set; }
         public double quoteTotal { get; set; }
 
 
@@ -46,131 +45,66 @@ namespace MegaDesk_Toller
             return surfaceArea;
         }
         /*This method calculations the shipping cost based on the surface area
-         of the desk and that days seleced for rush order*/
-        public double calcShippingRate(int days, int surfaceArea)
-        {
-            int shippingRate = 0;
-
-            switch (days)
-            {
-                case 3:
-                    if (calcSurfaceArea() < SMALLDESK)
-                    {
-                        shippingRate = getRushOrder()[0, 0];
-                    }
-                    else if (calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK)
-                    {
-                        shippingRate = getRushOrder()[0, 1];
-                    }
-                    else
-                    {
-                        shippingRate = getRushOrder()[0, 2];
-                    }
-                    break;
-
-                case 5:
-                    if (calcSurfaceArea() < SMALLDESK)
-                    {
-                        shippingRate = getRushOrder()[1, 0];
-                    }
-                    else if (calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK)
-                    {
-                        shippingRate = getRushOrder()[1, 1];
-                    }
-                    else
-                    {
-                        shippingRate = getRushOrder()[1, 2];
-                    }
-                    break;
-                case 7:
-                    if (calcSurfaceArea() < SMALLDESK)
-                    {
-                        shippingRate = getRushOrder()[2, 0];
-                    }
-                    else if (calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK)
-                    {
-                        shippingRate = getRushOrder()[2, 1];
-                    }
-                    else
-                    {
-                        shippingRate = getRushOrder()[2, 2];
-                    }
-                    break;
-                default:
-                    shippingRate = 0;
-                    break;
-            
-        }
-            return shippingRate;
-    
-            //calculate3 day shipping
-           /* if (calcSurfaceArea() < SMALLDESK && RushDays == THREEDAYRUSH)
-            {
-                shippingRate = 0;
-            }
-
-            else if ((calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK) && RushDays == THREEDAYRUSH)
-            {
-                shippingRate = 70;
-            }
-            else if (calcSurfaceArea() > LARGEDESK && RushDays == THREEDAYRUSH)
-            {
-                shippingRate = 80;
-                //calculate 5 day shipping
-            }
-            else if (calcSurfaceArea() < SMALLDESK && RushDays == FIVEDAYRUSH)
-            {
-                shippingRate = 40;
-            }
-            else if ((calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK) && RushDays == FIVEDAYRUSH)
-            {
-                shippingRate = 50;
-            }
-            else if (calcSurfaceArea() > LARGEDESK && RushDays == FIVEDAYRUSH)
-            {
-                shippingRate = 60;
-                //calculate 7 day shipping
-            }
-            else if (calcSurfaceArea() < SMALLDESK && RushDays == SEVENDAYRUSH)
-            {
-                shippingRate = 30;
-            }
-            else if ((calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK) && RushDays == SEVENDAYRUSH)
-            {
-                shippingRate = 35;
-            }
-            else if (calcSurfaceArea() > LARGEDESK && RushDays == SEVENDAYRUSH)
-            {
-                shippingRate = 40;
-            }
-            return shippingRate;*/
-
-        }
-        
-        // instead of using the above calShippingRate() I have to use the "rushOrderPrices.txt" file to read in the appropriate price
-        // I have to us a 3x3 dimension array in try catch block with the readAllLines to get single dimension array 
-        //use nested loops to populate two dimensional arry with 3 rows 3 columns.
-
-       public int[,] getRushOrder()
+         of the desk and the days seleced for rush order from the txt file.
+         using a 3x3 dimension array*/
+      
+       public int getRushOrder()
         {
             try
             {
+                
                 string rushDayFilePath = @"rushOrderPrices.txt";
                 string[] prices = File.ReadAllLines(rushDayFilePath);
-                // var grid = new List<List<string>>();
                 int[,] rushOrderPrice = new int[3, 3];
+                int shippingRate = 0;
 
-                for (int i=0; i<3; i++)
+                for (int i=0; i<1; i++)
                 {
-                    //var subList = new List<string>();
-                    for (int j=0; j<3; j++)
+                    for (int j = 0; j < 3; j++)
                     {
-                        rushOrderPrice[i, j] = Int32.Parse(prices[(i * 3) + j]);
-                        //subList.Add(prices[i + j + 1]);
+
+
+                        if ((calcSurfaceArea() < SMALLDESK) && RushDays == THREEDAYRUSH)
+                        {
+                            shippingRate = rushOrderPrice[0, 0];
+                        }
+                        else if ((calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK) && RushDays == THREEDAYRUSH)
+                        {
+                            shippingRate = rushOrderPrice[0, 1];
+                        }
+                        else if ((calcSurfaceArea() < LARGEDESK) && RushDays == THREEDAYRUSH)
+                        {
+                            shippingRate = rushOrderPrice[0, 2];
+                        } else if (calcSurfaceArea() < SMALLDESK && RushDays == FIVEDAYRUSH)
+                        {
+                            shippingRate = rushOrderPrice[1, 0];
+                        }
+                        else if ((calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK) && RushDays == FIVEDAYRUSH)
+                        {
+                            shippingRate = rushOrderPrice[1, 1];
+                        }
+                        else if (calcSurfaceArea() > LARGEDESK && RushDays == FIVEDAYRUSH)
+                        {
+                            shippingRate = rushOrderPrice[1, 2];
+                        }
+                        else if (calcSurfaceArea() < SMALLDESK && RushDays == SEVENDAYRUSH)
+                        {
+                            shippingRate = rushOrderPrice[2, 0];
+                        }
+                        else if ((calcSurfaceArea() > SMALLDESK && calcSurfaceArea() < LARGEDESK) && RushDays == SEVENDAYRUSH)
+                        {
+                            shippingRate = rushOrderPrice[2, 1];
+                        }
+                        else if (calcSurfaceArea() > LARGEDESK && RushDays == SEVENDAYRUSH)
+                        {
+                            shippingRate = rushOrderPrice[2, 2];
+                        }
+
+
                     }
-                    //grid.Add(subList);
+                   
                 }
-                return rushOrderPrice;
+                return shippingRate;
             }
             catch (Exception)
             {
@@ -179,6 +113,7 @@ namespace MegaDesk_Toller
             }
             
         }
+        /* this is calculating the surface area of the desk*/
         public double calcSurfaceAreaCost()
         {
             if (calcSurfaceArea() > SMALLDESK)
@@ -192,6 +127,7 @@ namespace MegaDesk_Toller
             return drawers * DRAWERCOST;
         }
 
+        /*This is setting the price with the desktop material name to display*/
         private int getMaterialCost()
         {
             try
@@ -214,10 +150,10 @@ namespace MegaDesk_Toller
 
             }
         }
-      
+      /* This calculates the quote total*/
         public double calcQuoteTotal()
         {
-            quoteTotal= BASECOST + calcDrawerCost() + calcSurfaceAreaCost() + getMaterialCost() + calcShippingRate();
+            quoteTotal = BASECOST + calcDrawerCost() + calcSurfaceAreaCost() + getMaterialCost() + getRushOrder();
             return quoteTotal;
         }
         public string GetDate()

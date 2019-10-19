@@ -39,14 +39,7 @@ namespace MegaDesk_Toller
             Application.Exit();
         }
 
-        private void DeskMaterialDropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-
-
-
-        }
+      
 
         private void SubmitQuoteButton_Click(object sender, EventArgs e)
         {

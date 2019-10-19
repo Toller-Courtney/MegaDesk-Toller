@@ -45,7 +45,7 @@ namespace MegaDesk_Toller
 
                     viewAllQuotesGrid.DataSource = deskOrders.Select(desk => new
                     {
-                        // the date is showing Null. I need to figure out how to displa the date that the quote was generated.
+                       
                         Date = desk.quoteDate,
                         Customer = desk.customerName,
                         Width = desk.width,
@@ -66,7 +66,7 @@ namespace MegaDesk_Toller
 
                 throw;
             }
-           //displaying quotes to the gridview.
+           
            
 
          
