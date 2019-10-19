@@ -134,11 +134,11 @@ namespace MegaDesk_Toller
             {
                 switch (DeskMaterial)
                 {
-                    case DesktopMaterial.oak: return (int)DesktopMaterial.oak;
-                    case DesktopMaterial.laminate: return (int)DesktopMaterial.laminate;
-                    case DesktopMaterial.pine: return (int)DesktopMaterial.pine;
-                    case DesktopMaterial.rosewood: return (int)DesktopMaterial.rosewood;
-                    case DesktopMaterial.veneer: return (int)DesktopMaterial.veneer;
+                    case DesktopMaterial.Oak: return (int)DesktopMaterial.Oak;
+                    case DesktopMaterial.Laminate: return (int)DesktopMaterial.Laminate;
+                    case DesktopMaterial.Pine: return (int)DesktopMaterial.Pine;
+                    case DesktopMaterial.Rosewood: return (int)DesktopMaterial.Rosewood;
+                    case DesktopMaterial.Veneer: return (int)DesktopMaterial.Veneer;
                     default:
                         throw new Exception("Material not found.");
 

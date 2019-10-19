@@ -46,22 +46,22 @@ namespace MegaDesk_Toller
            
 
             var item = DesktopMaterialBox.SelectedItem.ToString();
-            var material = DesktopMaterial.veneer;
-            if (item == DesktopMaterial.laminate.ToString())
+            var material = DesktopMaterial.Veneer;
+            if (item == DesktopMaterial.Laminate.ToString())
             {
-                material = DesktopMaterial.laminate;
+                material = DesktopMaterial.Laminate;
             }
-            else if (item == DesktopMaterial.oak.ToString())
+            else if (item == DesktopMaterial.Oak.ToString())
             {
-                material = DesktopMaterial.oak;
+                material = DesktopMaterial.Oak;
             }
-            else if (item == DesktopMaterial.pine.ToString())
+            else if (item == DesktopMaterial.Pine.ToString())
             {
-                material = DesktopMaterial.pine;
+                material = DesktopMaterial.Pine;
             }
-            else if (item == DesktopMaterial.rosewood.ToString())
+            else if (item == DesktopMaterial.Rosewood.ToString())
             {
-                material = DesktopMaterial.rosewood;
+                material = DesktopMaterial.Rosewood;
             }
             var days = 14;
             if (rushDays.SelectedIndex == DeskQuote.THREEDAYRUSH)

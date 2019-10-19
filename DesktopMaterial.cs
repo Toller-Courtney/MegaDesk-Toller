@@ -10,11 +10,11 @@ namespace MegaDesk_Toller
     /*Enums for my desktop material*/
     public enum DesktopMaterial
     {
-        oak = 200,
-        laminate = 100,
-        pine = 50,
-        rosewood = 300,
-        veneer = 125
+        Oak = 200,
+        Laminate = 100,
+        Pine = 50,
+        Rosewood = 300,
+        Veneer = 125
     }
 
 }
